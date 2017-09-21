@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:security="http://www.springframework.org/security/tags"
+	xmlns:custom="http://ambar.org/facelets">
+
+<f:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Market</title>
+			<link href='${request.contextPath}/spring/javax.faces.resource/images/favicon.ico' rel='shortcut icon' type='image/x-icon'/>
+		</f:facet>
+		
+		<f:facet name="last">
+
+			<h:outputStylesheet library="bootstrap/css" name="bootstrap.css" />
+			<!--<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.css" /> -->
+		
+			<h:outputScript library="js" name="jquery.min.js" />
+			<h:outputScript library="bootstrap/js" name="bootstrap.min.js"/>
+			
+			<h:outputScript library="js" name="sb-admin-2.js"/>
+			<h:outputScript library="metisMenu" name="metisMenu.js"/>
+			
+			<h:outputStylesheet library="css" name="sb-admin-2.css" />
+			<h:outputStylesheet library="metisMenu" name="metisMenu.css" />
+		
+			<h:outputStylesheet library="css" name="style.css" />
+			
+		</f:facet>
+	</h:head>
+
+	<h:body>
+
+		<div id="wrapper">
+
+			<ui:include src="/WEB-INF/templates/navigation.xhtml" />
+		
+			<div id="page-wrapper">
+    			<ui:insert name="content" />
+    		</div>
+	
+		</div>
+	</h:body>
+</f:view>
+</html>
