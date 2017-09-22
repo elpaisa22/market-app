@@ -5,17 +5,63 @@
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
-	xmlns:p="http://primefaces.org/ui"
 	xmlns:security="http://www.springframework.org/security/tags"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:custom="http://ambar.org/facelets"
-	template="/WEB-INF/templates/template_main.xhtml">
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template_admin.xhtml">
 	
 	<ui:define name="content">
-		
-		<div class="container">
-			HOLA			
-		</div>
+		<h:form prependId="false">
+			<p:dataTable id="singleDT"
+			             var="prop" value="#{dataGridView.propiedades}"
+			             selectionMode="single"
+			             selection="#{dataGridView.propiedadSeleccionada}"
+			             rowKey="#{prop.id}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{prop.id}" />
+			    </p:column>
+			 
+			 	<p:column headerText="Dormitorios">
+			        <h:outputText value="#{prop.dormitorios}" />
+			    </p:column>
 
+			    <p:column headerText="Precio">
+			        <h:outputText value="#{prop.precio}" />
+			    </p:column>
+			 
+			    <p:column headerText="Direccion">
+			        <h:outputText value="#{prop.direccion}" />
+			    </p:column>
+			    <f:facet name="footer">
+		            <p:commandButton process="singleDT" update="propDetail" icon="ui-icon-search" value="View" oncomplete="PF('propDialog').show()" />
+		        </f:facet>
+			</p:dataTable>
+
+			<p:dialog header="Prop Info" widgetVar="propDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="600">
+		        <p:outputPanel id="propDetail" style="text-align:center;">
+		            <h:panelGroup  layout="block" columns="2" rendered="#{not empty dataGridView.propiedadSeleccionada}" styleClass="row">
+		                <h:outputLabel value="Id:" styleClass="col-md-6"/>
+		                <h:outputText value="#{dataGridView.propiedadSeleccionada.id}" styleClass="col-md-6"/>
+		 			</h:panelGroup>
+		 			
+		 			<h:panelGroup  layout="block" columns="2" rendered="#{not empty dataGridView.propiedadSeleccionada}" styleClass="row">
+		                <h:outputLabel value="Dormitorios" styleClass="col-md-6"/>
+		                <h:outputText value="#{dataGridView.propiedadSeleccionada.dormitorios}" styleClass="col-md-6"/>
+		 			</h:panelGroup>
+		 			
+		 			<h:panelGroup  layout="block" columns="2" rendered="#{not empty dataGridView.propiedadSeleccionada}" styleClass="row">
+		                <h:outputLabel value="Precio:" styleClass="col-md-6"/>
+		                <h:outputText value="#{dataGridView.propiedadSeleccionada.precio}" styleClass="col-md-6"/>
+		 			</h:panelGroup>
+		 			
+		 			<h:panelGroup  layout="block" columns="2" rendered="#{not empty dataGridView.propiedadSeleccionada}" styleClass="row">
+		                <h:outputLabel value="Direccion" styleClass="col-md-6"/>
+		                <h:outputText value="#{dataGridView.propiedadSeleccionada.direccion}" styleClass="col-md-6"/>
+		            </h:panelGroup>
+		        </p:outputPanel>
+		    </p:dialog>
+
+		</h:form>	
 	</ui:define>
 </ui:composition>

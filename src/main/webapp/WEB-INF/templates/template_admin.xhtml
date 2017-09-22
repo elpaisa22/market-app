@@ -7,7 +7,8 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:security="http://www.springframework.org/security/tags"
-	xmlns:custom="http://ambar.org/facelets">
+	xmlns:custom="http://ambar.org/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <f:view contentType="text/html">
 	<h:head>
@@ -23,7 +24,9 @@
 			<h:outputStylesheet library="bootstrap/css" name="bootstrap.css" />
 			<!--<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.css" /> -->
 		
-			<h:outputScript library="js" name="jquery.min.js" />
+			<h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+			<h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head" />
+
 			<h:outputScript library="bootstrap/js" name="bootstrap.min.js"/>
 			
 			<h:outputScript library="js" name="sb-admin-2.js"/>

@@ -1,6 +1,7 @@
 package org.ambar.market.be;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +19,11 @@ public class Propiedad implements Serializable, Persistible<Long> {
 	private static final long serialVersionUID = -2553191625164786867L;
 
 	private Long id;
+
+	private Integer dormitorios;
+
+	private BigDecimal precio;
+	private String direccion;
 	
 	/* (non-JSDoc)
 	 * @see org.ambar.core.be.Persistible#getId()
@@ -36,5 +42,32 @@ public class Propiedad implements Serializable, Persistible<Long> {
 	@Override
 	public void setId(Long pId) {
 		this.id = pId;
+	}
+
+	@Column(name = "DORMITORIOS")
+	public Integer getDormitorios() {
+		return dormitorios;
+	}
+
+	public void setDormitorios(Integer dormitorios) {
+		this.dormitorios = dormitorios;
+	}
+
+	@Column(name = "PRECIO")
+	public BigDecimal getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
+	}
+
+	@Column(name = "DIRECCION")
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 }

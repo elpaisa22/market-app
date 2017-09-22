@@ -1,0 +1,4 @@
+--Propiedades
+insert into MK_PROPIEDAD(IDPROPIEDAD, PRECIO, DORMITORIOS, DIRECCION) values (1, 85000, 2, 'Brasil 95')
+insert into MK_PROPIEDAD(IDPROPIEDAD, PRECIO, DORMITORIOS, DIRECCION) values (2, 95000, 3, 'Charras y Corrientes')
+insert into MK_PROPIEDAD(IDPROPIEDAD, PRECIO, DORMITORIOS, DIRECCION) values (3, 70, 1, 'San Juan 214')
